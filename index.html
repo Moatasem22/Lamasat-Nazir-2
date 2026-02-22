@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لمسات كار لزينة السيارات</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="mobile-header">
+        <h2>لمسات كار</h2>
+        <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleMobileMenu()"></div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>لمسات كار<br><span style="font-size: 14px; color:#a8e6cf;">لزينة السيارات</span></h2>
+        <button onclick="showDashboard(); closeMobileMenu();">لوحة التحكم</button>
+        <button onclick="showServices(); closeMobileMenu();">خدماتنا</button>
+        <button onclick="showWorkOrder(); closeMobileMenu();">أمر عمل</button>
+        <button onclick="showExpenses(); closeMobileMenu();">المصروفات اليومية</button>
+        <button onclick="showInventory(); closeMobileMenu();">المخزون</button>
+        <button onclick="showReports(); closeMobileMenu();">التقارير</button>
+        
+        <button id="themeBtn" onclick="toggleTheme()">الوضع الليلي 🌙</button>
+    </div>
+
+    <div class="main">
+        <div id="app"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
