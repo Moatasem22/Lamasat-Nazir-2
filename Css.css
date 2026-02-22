@@ -1,0 +1,259 @@
+/* المتغيرات الأساسية للألوان (الوضع النهاري) */
+:root{
+    --primary:#0B5C3E;
+    --primary-light:#1E7F5A;
+    --danger:#D32F2F;
+    --info:#1976D2;
+    --warning:#F57C00;
+    --success:#2E7D32;
+    
+    --bg:#F4F6F8;
+    --card:#ffffff;
+    --text-main:#333333;
+    --text-muted:#666666;
+    --border-color:#dddddd;
+    
+    --radius:10px;
+    --shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* المتغيرات الأساسية للألوان (الوضع الليلي) */
+body.dark-mode {
+    --bg:#121212;
+    --card:#1E1E1E;
+    --text-main:#F1F1F1;
+    --text-muted:#AAAAAA;
+    --border-color:#333333;
+    --shadow:0 4px 15px rgba(0,0,0,0.4);
+}
+
+* { box-sizing: border-box; }
+
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--bg);
+    color: var(--text-main);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* شريط الجوال العلوي (مخفي في الكمبيوتر) */
+.mobile-header {
+    display: none;
+    background: var(--card);
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-header h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.menu-toggle {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* القائمة الجانبية */
+.sidebar{
+    width:250px;
+    background:var(--primary);
+    color:white;
+    position:fixed;
+    height:100%;
+    right: 0;
+    top: 0;
+    padding:20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: right 0.3s ease;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.sidebar button{
+    width:100%;
+    margin-bottom:12px;
+    padding:12px;
+    border:none;
+    background:var(--primary-light);
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.sidebar button:hover { background: #259b6d; }
+
+#themeBtn {
+    margin-top: auto;
+    background: #2c3e50;
+    font-weight: bold;
+}
+
+/* المحتوى الرئيسي */
+.main{
+    margin-right:250px;
+    padding:30px;
+    transition: margin-right 0.3s ease;
+}
+
+/* الغطاء الأسود للجوال عند فتح القائمة */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; right: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.overlay.active { display: block; }
+
+/* البطاقات */
+.card{
+    background:var(--card);
+    padding:25px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin-bottom:25px;
+    transition: background 0.3s, box-shadow 0.3s;
+    overflow-x: auto;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services-list { list-style-type: none; padding-right: 0; }
+.services-list li { position: relative; padding-right: 25px; margin-bottom: 10px; font-size: 16px; line-height: 1.6; }
+.services-list li::before { content: '✔️'; position: absolute; right: 0; color: var(--primary); font-size: 14px; }
+
+.search-bar {
+    width: 50%;
+    min-width: 200px;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    background: var(--card);
+    color: var(--text-main);
+    transition: border 0.3s, background 0.3s, color 0.3s;
+}
+
+.search-bar:focus { border-color: var(--primary); }
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    border-top: 4px solid var(--primary);
+}
+
+.stat-card h3 { margin: 0; color: var(--text-muted); font-size: 16px; border: none; display: block; }
+.stat-card p { font-size: 24px; font-weight: bold; color: var(--primary); margin: 10px 0 0 0; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px; }
+
+input,select{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--border-color);
+    border-radius:6px;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    background: var(--card);
+    color: var(--text-main);
+    transition: border 0.3s, background 0.3s, color 0.3s;
+}
+
+input:focus { border-color: var(--primary); }
+
+button.action{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:6px;
+    cursor:pointer;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    transition: background 0.3s;
+    width: 100%;
+}
+button.action:hover { background: var(--primary-light); }
+
+button.btn-danger, button.btn-print, button.btn-edit, button.btn-excel {
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    margin: 2px;
+    white-space: nowrap;
+}
+
+button.btn-danger { background: var(--danger); }
+button.btn-danger:hover { background: #b71c1c; }
+button.btn-print { background: var(--info); }
+button.btn-print:hover { background: #1565C0; }
+button.btn-edit { background: var(--warning); }
+button.btn-edit:hover { background: #E65100; }
+button.btn-excel { background: #217346; }
+button.btn-excel:hover { background: #1e6b40; }
+
+table{ width:100%; border-collapse:collapse; margin-top: 15px; min-width: 600px; }
+th,td{ padding:12px; border-bottom:1px solid var(--border-color); text-align:center; }
+th { background: var(--bg); color: var(--primary); font-weight: 600; }
+tr:hover { background: var(--bg); }
+
+/* --- استعلامات الوسائط (الجوال) Responsive Media Queries --- */
+@media (max-width: 768px) {
+    .mobile-header { display: flex; }
+    .sidebar { right: -260px; }
+    .sidebar.active { right: 0; }
+    .main { margin-right: 0; padding: 15px; }
+    .search-bar { width: 100%; margin-top: 10px; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+}
